@@ -15,7 +15,7 @@ export const Container = (props) => {
     return (
         <>
             <NavBar page={props.page} back={props.back} />
-            <main className={`pt-[110px] `}>
+            <main className={`pt-[110px] max-w-xl mx-auto`}>
                 <section>
                     {props.children}
                 </section>

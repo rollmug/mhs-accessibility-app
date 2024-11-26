@@ -40,7 +40,7 @@ export default async function Collections() {
                             <div className="grid grid-cols-2 gap-x-8 gap-y-12">
                                 {categories.map((category) => (
                                     <Link key={category.id} href={`/collections/${category.id}`} className="cursor-pointer">
-                                        <div className={`p-1 aspect-square`} style={{backgroundColor: category.color}}>
+                                        <div className={`p-1 aspect-square flex items-center justify-center`} style={{backgroundColor: category.color}}>
                                             <Image
                                                 src={`${urlBase}/${category.icon.id}/${category.icon.filename_disk}`}
                                                 alt={`${category.categoryName} icon`}
