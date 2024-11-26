@@ -3,19 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --item-btn-bg: #333;
+  --item-btn-text: #f4f4f4;
+  --item-detail-bg: #F2F0EC;
+  --background-image: url("/light-bg.jpg");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --item-btn-bg: #141414;
+  --item-btn-text: #f4f4f4;
+  --item-detail-bg: #141414;
+  --background-image: url("/dark-bg.jpg");
+}
+
+html {
+  @apply h-full;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply min-h-full;
+}
+
+body {
+  font-family: var(--font-figtree);
+
+  background: var(--background-image) repeat center center fixed;
+}
+
+p {
+  @apply text-lg my-6;
 }
