@@ -16,7 +16,7 @@ export const Container = (props) => {
 
     return (
         <>
-            <NavBar page={props.page} back={props.back} ref={firstFocusableElementRef} />
+            <NavBar page={props.page} back={props.back} customAlt={props.customAlt} ref={firstFocusableElementRef} />
             <main className={`pt-[110px] max-w-xl mx-auto`}>
                 <section>
                     {props.children}
@@ -26,7 +26,7 @@ export const Container = (props) => {
     );
 }
 
-export const NavBar = forwardRef(({ page = "home", back = null }, ref) => {
+export const NavBar = forwardRef(({ page = "home", back = null, customAlt = null }, ref) => {
     // home collections items detail
     let icon, link, alt;
     switch (page) {
@@ -48,7 +48,7 @@ export const NavBar = forwardRef(({ page = "home", back = null }, ref) => {
         case "detail":
             icon = backIcon;
             link = back;
-            alt = "Return to Category page.";
+            alt = customAlt || "Return to Category page.";
             break;
         default:
             icon = homeIcon;

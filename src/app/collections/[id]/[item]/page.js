@@ -61,7 +61,7 @@ export default async function ItemDetail({ params }) {
     return (
         <>
             <StorageProvider>
-                <Container page="detail" back={`/collections/${collection.category.id}`}>
+                <Container page="detail" back={`/collections/${collection.category.id}`} customAlt={`Return to category: ${collection.category.categoryName}`}>
                     <main>
                         <section className="bg-item-detail-bg px-7 pt-10 pb-3">
                             <h1 className="text-3xl font-bold text-secondary" dangerouslySetInnerHTML={{ __html: cleanText(collection.assetTitle) }} />

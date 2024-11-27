@@ -57,6 +57,7 @@ const CollectionDetail = gql`query Collection_by_id($collectionByIdId: ID!) {
     }
     category {
       id
+      categoryName
     }
   }
 }`;
