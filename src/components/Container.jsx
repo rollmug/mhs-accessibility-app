@@ -83,3 +83,5 @@ export const NavBar = forwardRef(({ page = "home", back = null }, ref) => {
         </>
     );
 });
+
+NavBar.displayName = 'NavBar';
