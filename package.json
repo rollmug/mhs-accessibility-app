@@ -13,7 +13,9 @@
     "@apollo/experimental-nextjs-app-support": "^0.11.6",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "smartquotes": "^2.3.2",
+    "string-strip-html": "^13.4.8"
   },
   "devDependencies": {
     "daisyui": "^4.12.14",

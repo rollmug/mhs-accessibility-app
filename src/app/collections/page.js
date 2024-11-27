@@ -32,23 +32,24 @@ export default async function Collections() {
                             <h1 className="text-3xl font-bold text-secondary">Select a Category</h1>
 
                             <p>
-                                This text will tell you what to do on this page. It will not be in Latin.
+                                This text will eventually tell you what you can do on this page. We have not written it yet.
                             </p>
                         </section>
 
                         <section className="px-7 pb-12">
                             <div className="grid grid-cols-2 gap-x-8 gap-y-12">
                                 {categories.map((category) => (
-                                    <Link key={category.id} href={`/collections/${category.id}`} className="cursor-pointer">
+                                    <Link key={category.id} href={`/collections/${category.id}`} className="cursor-pointer" aria-label={`Category: ${category.categoryName}`}>
                                         <div className={`p-1 aspect-square flex items-center justify-center`} style={{backgroundColor: category.color}}>
                                             <Image
                                                 src={`${urlBase}/${category.icon.id}/${category.icon.filename_disk}`}
-                                                alt={`${category.categoryName} icon`}
+                                                alt={`Category: ${category.categoryName}`}
+                                                aria-hidden="true"
                                                 width={150}
                                                 height={150}
                                             />
                                         </div>
-                                        <h2 className="mt-4 text-center text-lg font-bold text-base-content leading-tight">{category.categoryName}</h2>
+                                        <h2 className="mt-4 text-center text-lg font-bold text-base-content leading-tight" aria-hidden="true">{category.categoryName}</h2>
                                     </Link>
                                 ))}
                             </div>

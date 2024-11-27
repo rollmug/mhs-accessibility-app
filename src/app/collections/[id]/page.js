@@ -4,6 +4,7 @@ import StorageProvider from "@/app/storageProvider";
 import Image from 'next/image';
 import Link from "next/link";
 import { getCollectionsByCategory, getCategoryByID } from "@/lib/collection-data";
+import { stripHtml } from "string-strip-html";
 
 import Arrow from "../../../../public/arrow.svg";
 
@@ -33,36 +34,41 @@ export default async function CollectionItems({ params }) {
                 <Container page="items">
                     <main>
                         <section className="px-7 pt-10 pb-3">
-                            <h1 className="text-lg font-bold text-base-content mb-5">Category</h1>
-                            <h2 className="text-3xl font-bold text-secondary">
+                            <div className="text-lg font-bold text-base-content mb-5" aria-hidden="true">Category</div>
+                            <h1 className="text-3xl font-bold text-secondary" aria-label={`Category: ${category.categoryName}`}>
                                 {category.categoryName}
-                            </h2>
+                            </h1>
 
                             <p>
-                                Select an item to learn more.
+                                Select an item below to learn more.
                             </p>
                         </section>
 
                         <section className="px-7 pb-10">
                             <div className="flex flex-col gap-y-9">
                                 {collections.map((collection) => (
-                                    <Link key={collection.id} href={`/collections/${id}/${collection.id}`} className="flex flex-row gap-4 items-center bg-item-btn-bg pr-3">
+                                    <Link 
+                                        key={collection.id} 
+                                        href={`/collections/${id}/${collection.id}`} 
+                                        className="flex flex-row gap-4 items-center bg-item-btn-bg pr-3" 
+                                        aria-label={`Visit item: ${stripHtml(collection.assetTitle).result}`}>
                                         <div className="flex-none w-[110px] aspect-square">
                                             <Image
                                                 src={`${process.env.FILES_BASE_URL}/${collection.imageEntries[0].ImageEntry_id.image.id}/${collection.imageEntries[0].ImageEntry_id.image.filename_disk}${transform}`}
-                                                alt={collection.assetTitle}
+                                                alt={stripHtml(collection.assetTitle).result}
                                                 width={130}
                                                 height={130}
+                                                aria-hidden="true"
                                             />
                                         </div>
 
                                         <div className="flex-1">
-                                            <p className="m-0 text-base font-bold text-item-btn-text leading-tight">
+                                            <p className="m-0 text-base font-bold text-item-btn-text leading-tight" aria-hidden="true">
                                                 <span dangerouslySetInnerHTML={{ __html: collection.assetTitle }}></span>
                                             </p>
                                         </div>
-                                        <div className="flex-none w-4">
-                                            <Image src={Arrow} alt="Arrow icon" />
+                                        <div className="flex-none w-4" aria-hidden="true">
+                                            <Image src={Arrow} alt="Arrow icon" aria-hidden="true" />
                                         </div>
                                     </Link>
                                 ))}

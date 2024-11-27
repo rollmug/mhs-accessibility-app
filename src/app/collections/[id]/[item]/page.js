@@ -3,6 +3,8 @@ import { Container } from "@/components/Container";
 import StorageProvider from "@/app/storageProvider";
 import Image from 'next/image';
 import Link from "next/link";
+import smartquotes from "smartquotes";
+import { stripHtml } from "string-strip-html";
 
 import { getCollectionByID, getCollectionsByCategory } from "@/lib/collection-data";
 
@@ -49,15 +51,22 @@ export default async function ItemDetail({ params }) {
         );
     }
 
+    const cleanText = (text) => {
+        text = text.replace(/<(\/?)b\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gm, "<$1strong$2>");
+        text = text.replace(/<(\/?)i\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gm, "<$1em$2>");
+        text = text.replace(/(\r\n|\n|\r)/gm, "");
+        return smartquotes(text);
+    };
+
     return (
         <>
             <StorageProvider>
                 <Container page="detail" back={`/collections/${collection.category.id}`}>
                     <main>
                         <section className="bg-item-detail-bg px-7 pt-10 pb-3">
-                            <h1 className="text-3xl font-bold text-secondary" dangerouslySetInnerHTML={{ __html: collection.assetTitle }} />
+                            <h1 className="text-3xl font-bold text-secondary" dangerouslySetInnerHTML={{ __html: cleanText(collection.assetTitle) }} />
 
-                            <p dangerouslySetInnerHTML={{ __html: collection.bodyCopy }}></p>
+                            <p role="text" dangerouslySetInnerHTML={{ __html: cleanText(collection.bodyCopy) }}></p>
 
                             <h2 className="text-lg font-bold text-base-content mb-5">Object Title and Accession Number</h2>
 
@@ -70,7 +79,7 @@ export default async function ItemDetail({ params }) {
                                     <div key={image.ImageEntry_id.id} className="flex flex-col gap-y-4">
                                         <Image
                                             src={`${process.env.FILES_BASE_URL}/${image.ImageEntry_id.image.id}/${image.ImageEntry_id.image.filename_disk}${transform}`}
-                                            alt={image.ImageEntry_id.accessibilityTags ? image.ImageEntry_id.accessibilityTags : 'No description provided for this image'}
+                                            alt={image.ImageEntry_id.accessibilityTags ? image.ImageEntry_id.accessibilityTags : 'No description provided for this image.'}
                                             width={500}
                                             height={500}
                                         />
@@ -78,7 +87,7 @@ export default async function ItemDetail({ params }) {
                                         {image.ImageEntry_id.accessibilityDescription ? (
                                             <p>{image.ImageEntry_id.accessibilityDescription}</p>
                                         ) : (
-                                            <p>No description provided for this image</p>
+                                            <p>No description provided for this image.</p>
                                         )}
                                     </div>
                                 ))}
@@ -89,8 +98,8 @@ export default async function ItemDetail({ params }) {
 
                             {data.next && (
                                 <p>
-                                    <Link href={`/collections/${collection.category.id}/${data.next.id}`}>
-                                        <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide">
+                                    <Link href={`/collections/${collection.category.id}/${data.next.id}`} aria-label="Go to next item.">
+                                        <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide"  aria-hidden="true">
                                             Next Item
                                         </button>
                                     </Link>
@@ -98,8 +107,8 @@ export default async function ItemDetail({ params }) {
                             )}
 
                             <p>
-                                <Link href={`/collections/${collection.category.id}`}>
-                                    <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide">
+                                <Link href={`/collections/${collection.category.id}`} aria-label="Return to all items.">
+                                    <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide" aria-hidden="true">
                                         Back to Items
                                     </button>
                                 </Link>

@@ -19,16 +19,14 @@ export const HomePage = () => {
         <>
             <main>
                 <section className="px-7 py-14 bg-neutral-content">
-                    <Image src={logo} alt="Collected Logo" suppressHydrationWarning />
+                    <Image src={logo} alt="Logo. Geometric multicolored shapes forming a circular pattern next to the word COLLECTED." suppressHydrationWarning />
                 </section>
 
                 <section className="px-7 py-10">
                     <h1 className="text-3xl font-bold text-secondary">Title of the App</h1>
 
                     <p>
-                        The block of text that will go here will serve several functions. 
-                        It will not only assist you in understanding the purpose of this app, but your own greater purpose in life as well. 
-                        That’s a tall order for this text, but we’re sure our talented writers will accomplish this.
+                        The block of text that will eventually go here will assist you in understanding the purpose of this app, as well as how to use it.
                     </p>
 
                     <div className="mt-8">
