@@ -48,7 +48,7 @@ export const NavBar = forwardRef(({ page = "home", back = null }, ref) => {
         case "detail":
             icon = backIcon;
             link = back;
-            alt = "Return to previous page.";
+            alt = "Return to Category page.";
             break;
         default:
             icon = homeIcon;
