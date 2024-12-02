@@ -18,8 +18,8 @@ export const HomePage = () => {
     return (
         <>
             <main>
-                <section className="px-7 py-14 bg-neutral-content">
-                    <Image src={logo} alt="Logo. Geometric multicolored shapes forming a circular pattern next to the word COLLECTED." suppressHydrationWarning />
+                <section className="px-7 py-8 bg-neutral-content flex justify-center items-center">
+                    <Image src={logo} className="max-w-[90%]" alt="Logo. Geometric multicolored shapes forming a circular pattern next to the word COLLECTED." suppressHydrationWarning />
                 </section>
 
                 <section className="px-7 py-10">

@@ -44,7 +44,9 @@ export default async function ItemDetail({ params }) {
             <>
                 <StorageProvider>
                     <Container>
-                        <h1>Error fetching data</h1>
+                        <section className="my-6">
+                            <div role="alert" className="alert alert-error text-white">{collection.message}. {collection.error}</div>
+                        </section>
                     </Container>
                 </StorageProvider>
             </>
@@ -99,7 +101,7 @@ export default async function ItemDetail({ params }) {
                             {data.next && (
                                 <p>
                                     <Link href={`/collections/${collection.category.id}/${data.next.id}`} aria-label="Go to next item.">
-                                        <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide"  aria-hidden="true">
+                                        <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide" aria-hidden="true">
                                             Next Item
                                         </button>
                                     </Link>

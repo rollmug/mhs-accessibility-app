@@ -9,7 +9,7 @@ import { stripHtml } from "string-strip-html";
 import Arrow from "../../../../public/arrow.svg";
 
 export default async function CollectionItems({ params }) {
-    const {id} = await params;
+    const { id } = await params;
     const category = await getCategoryByID(id);
     const collections = await getCollectionsByCategory(id);
 
@@ -20,14 +20,26 @@ export default async function CollectionItems({ params }) {
             <>
                 <StorageProvider>
                     <Container>
-                        <h1>Error fetching data</h1>
+                        <section className="my-6">
+                            <div role="alert" className="alert alert-error text-white">{collections.message}. {collections.error}</div>
+                        </section>
                     </Container>
                 </StorageProvider>
             </>
         );
     }
 
-    console.log(collections);
+    //console.log(collections);
+
+    // collections.forEach(element => {
+    //     console.log(element.id)
+    //     //console.log(element.imageEntries)
+    //     element.imageEntries.forEach(image => {
+    //         // console.log(image.ImageEntry_id.image.id)
+    //         console.log(image.ImageEntry_id.image.filename_disk)
+    //     });
+    //     console.log('--------------')
+    // });
     return (
         <>
             <StorageProvider>
@@ -47,10 +59,10 @@ export default async function CollectionItems({ params }) {
                         <section className="px-7 pb-10">
                             <div className="flex flex-col gap-y-9">
                                 {collections.map((collection) => (
-                                    <Link 
-                                        key={collection.id} 
-                                        href={`/collections/${id}/${collection.id}`} 
-                                        className="flex flex-row gap-4 items-center bg-item-btn-bg pr-3" 
+                                    <Link
+                                        key={collection.id}
+                                        href={`/collections/${id}/${collection.id}`}
+                                        className="flex flex-row gap-4 items-center bg-item-btn-bg pr-3"
                                         aria-label={`Visit item: ${stripHtml(collection.assetTitle).result}`}>
                                         <div className="flex-none w-[110px] aspect-square">
                                             <Image

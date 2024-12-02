@@ -15,14 +15,16 @@ const Categories = gql`query Categories($sort: [String]) {
   }
 }`;
 
-const CategoryCollections = gql`query Collections($filter: Collection_filter) {
+const CategoryCollections = gql`query Collections($filter: Collection_filter, $sort: [String]) {
   Collection(filter: $filter) {
     id
     assetTitle
     status
     provenance
     bodyCopy
-    imageEntries {
+    imageEntries(sort: $sort) {
+      id
+      sort
       ImageEntry_id {
         id
         image {
@@ -34,15 +36,16 @@ const CategoryCollections = gql`query Collections($filter: Collection_filter) {
   }
 }`;
 
-const CollectionDetail = gql`query Collection_by_id($collectionByIdId: ID!) {
+const CollectionDetail = gql`query Collection_by_id($collectionByIdId: ID!, $sort: [String]) {
   Collection_by_id(id: $collectionByIdId) {
     id
     assetTitle
     bodyCopy
     status
     provenance
-    imageEntries {
+    imageEntries(sort: $sort) {
       id
+      sort
       ImageEntry_id {
         id
         accessibilityDescription
@@ -80,14 +83,15 @@ export const getCollectionByID = async (id) => {
                 }
             },
             variables: {
-                collectionByIdId: id
+                collectionByIdId: id,
+                sort: ["sort", "id"]
             },
         });
         return data.Collection_by_id;
     } catch (error) {
         return {
             error: error.message,
-            message: "Error fetching data"
+            message: "Error fetching collection data"
         }
     }
 }
@@ -110,7 +114,7 @@ export const getCategoryByID = async (id) => {
     } catch (error) {
         return {
             error: error.message,
-            message: "Error fetching data"
+            message: "Error fetching category data"
         }
     }
 }
@@ -135,14 +139,15 @@ export const getCollectionsByCategory = async (id) => {
                     status: {
                         _eq: "published"
                     }
-                }
+                },
+                sort: ["sort", "id"]
             },
         });
         return data.Collection;
     } catch (error) {
         return {
             error: error.message,
-            message: "Error fetching data"
+            message: "Error fetching collections"
         }
     }
 };
@@ -165,7 +170,7 @@ export const getCategories = async () => {
     } catch (error) {
         return {
             error: error.message,
-            message: "Error fetching data"
+            message: "Error fetching categories data"
         }
     }
 };
