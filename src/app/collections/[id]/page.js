@@ -76,7 +76,9 @@ export default async function CollectionItems({ params }) {
 
                                         <div className="flex-1">
                                             <p className="m-0 text-base font-bold text-item-btn-text leading-tight" aria-hidden="true">
-                                                <span dangerouslySetInnerHTML={{ __html: collection.assetTitle }}></span>
+                                                <span>
+                                                    {stripHtml(collection.assetTitle).result}
+                                                </span>
                                             </p>
                                         </div>
                                         <div className="flex-none w-4" aria-hidden="true">
