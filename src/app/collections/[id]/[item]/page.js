@@ -71,8 +71,9 @@ export default async function ItemDetail({ params }) {
                             <p role="text" dangerouslySetInnerHTML={{ __html: cleanText(collection.bodyCopy) }}></p>
 
                             <h2 className="text-lg font-bold text-base-content mb-5">Object Title and Accession Number</h2>
-
-                            <p>{collection.provenance}</p>
+                            
+                            <p role="text" dangerouslySetInnerHTML={{ __html: cleanText(collection.provenance) }} />
+                            {/* <p>{collection.provenance}</p> */}
                         </section>
 
                         <section className="pt-10">
