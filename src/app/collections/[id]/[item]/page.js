@@ -109,9 +109,9 @@ export default async function ItemDetail({ params }) {
                             )}
 
                             <p>
-                                <Link href={`/collections/${collection.category.id}`} aria-label="Return to all items.">
+                                <Link href={`/collections/${collection.category.id}`} aria-label="Return to Category.">
                                     <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide" aria-hidden="true">
-                                        Back to Items
+                                        Return to Category
                                     </button>
                                 </Link>
                             </p>

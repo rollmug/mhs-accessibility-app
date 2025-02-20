@@ -23,16 +23,16 @@ export const HomePage = () => {
                 </section>
 
                 <section className="px-7 py-10">
-                    <h1 className="text-3xl font-bold text-secondary">Title of the App</h1>
+                    <h1 className="text-3xl font-bold text-secondary">Explore the Collection</h1>
 
                     <p>
-                        The block of text that will eventually go here will assist you in understanding the purpose of this app, as well as how to use it.
+                        The Collected exhibit showcases 150 years’ worth of objects gathered by the Missouri Historical Society. Touch below to explore them!
                     </p>
 
                     <div className="mt-8">
                         <Link href="/collections">
                             <button className="btn btn-primary btn-block rounded-none text-xl tracking-wide">
-                                Explore Collections
+                                Begin
                             </button>
                         </Link>
                     </div>
