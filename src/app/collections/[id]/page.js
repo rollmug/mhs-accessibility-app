@@ -29,17 +29,6 @@ export default async function CollectionItems({ params }) {
         );
     }
 
-    //console.log(collections);
-
-    // collections.forEach(element => {
-    //     console.log(element.id)
-    //     //console.log(element.imageEntries)
-    //     element.imageEntries.forEach(image => {
-    //         // console.log(image.ImageEntry_id.image.id)
-    //         console.log(image.ImageEntry_id.image.filename_disk)
-    //     });
-    //     console.log('--------------')
-    // });
     return (
         <>
             <StorageProvider>

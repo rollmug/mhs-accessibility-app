@@ -97,7 +97,7 @@ export default async function ItemDetail({ params }) {
                             </div>
                         </section>
 
-                        <section className="px-7 pb-7">
+                        <section className="px-7 pb-7" role="heading" aria-level="3" aria-label="Navigation">
 
                             {data.next && (
                                 <p>

@@ -32,10 +32,6 @@ export default async function Collections() {
                     <main>
                         <section className="px-7 pt-10 pb-4">
                             <h1 className="text-3xl font-bold text-secondary mt-1 mb-4">Select a Category</h1>
-
-                            {/* <p>
-                                This text will eventually tell you what you can do on this page. We have not written it yet.
-                            </p> */}
                         </section>
 
                         <section className="px-7 pb-12">

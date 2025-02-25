@@ -65,7 +65,7 @@ export const NavBar = forwardRef(({ page = "home", back = null, customAlt = null
     return (
         <>
             <div className="navbar fixed bg-neutral py-7 px-7 shadow-[0px_9px_15px_0px_rgba(51,51,51,_0.2)]">
-                <div className="navbar-start">
+                <div className="navbar-start" role="heading" aria-level="1">
                     {page !== "home" ? (
                         <Link href={link} ref={ref} tabIndex={1} aria-label={alt}>
                             <Image src={icon} alt={alt} aria-hidden="true" />
