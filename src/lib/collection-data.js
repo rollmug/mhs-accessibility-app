@@ -89,9 +89,10 @@ export const getCollectionByID = async (id) => {
         });
         return data.Collection_by_id;
     } catch (error) {
+        console.error(`Error fetching collections data from ${process.env.GRAPHQL_URL}`, error);
         return {
             error: error.message,
-            message: "Error fetching collection data"
+            message: `Error fetching collection data from ${process.env.GRAPHQL_URL}`
         }
     }
 }
@@ -112,9 +113,10 @@ export const getCategoryByID = async (id) => {
         });
         return data.Categories_by_id;
     } catch (error) {
+        console.error(`Error fetching category data from ${process.env.GRAPHQL_URL}`, error);
         return {
             error: error.message,
-            message: "Error fetching category data"
+            message: `Error fetching category data from ${process.env.GRAPHQL_URL}`
         }
     }
 }
@@ -145,6 +147,7 @@ export const getCollectionsByCategory = async (id) => {
         });
         return data.Collection;
     } catch (error) {
+        console.error(`Error fetching collections data from ${process.env.GRAPHQL_URL}`, error);
         return {
             error: error.message,
             message: "Error fetching collections"
@@ -168,9 +171,10 @@ export const getCategories = async () => {
         });
         return data.Categories;
     } catch (error) {
+        console.error(`Error fetching category data from ${process.env.GRAPHQL_URL}`, error);
         return {
             error: error.message,
-            message: "Error fetching categories data"
+            message: `Error fetching category data from ${process.env.GRAPHQL_URL}`
         }
     }
 };
