@@ -56,6 +56,17 @@ docker compose up -d --build
 
 ### To test the NGINX reverse proxy without Directus:
 
+Create a `.env` file in this directory the contains the settings for:
+
+```dotenv
+VIRTUAL_HOST=some.domain.com
+VIRTUAL_PORT=3000
+LETSENCRYPT_HOST=some.domain.com
+LETSENCRYPT_EMAIL=you@email.com
+```
+
+(Note: this is separate from the `.env.local` file, which must also exist.)
+
 ```bash
 docker compose -f docker-compose-dev.yml up -d --build
 ```
