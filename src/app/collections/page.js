@@ -9,7 +9,7 @@ export default async function Collections() {
     const categories = await getCategories();
     const urlBase = process.env.FILES_BASE_URL;
 
-    console.log(categories);
+    // console.log(categories);
 
     if (categories.error) {
         return (
