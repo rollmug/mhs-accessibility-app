@@ -1,0 +1,12 @@
+services:
+  collected-mohistory:
+    container_name: collected-mohistory
+    build:
+      context: .
+    restart: always
+    environment:
+      NODE_ENV: production
+    env_file: 
+      - .env.local
+    ports:
+      - 3000:3000
