@@ -68,7 +68,7 @@ LETSENCRYPT_EMAIL=you@email.com
 (Note: this is separate from the `.env.local` file, which must also exist.)
 
 ```bash
-docker compose -f docker-compose-dev.yml up -d --build
+docker compose -f docker-compose.dev.yml up -d --build
 ```
 
 
