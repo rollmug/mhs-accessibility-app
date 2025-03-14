@@ -24,7 +24,12 @@ In the project root directory, create a file called `.env.local` and add the fol
 GRAPHQL_URL=https://path-to-directus/graphql
 FILES_BASE_URL=https://path-to-directus/assets
 NEXT_PUBLIC_FILES_BASE_URL=https://path-to-directus/assets
-CACHE_DELAY=100
+CACHE_DELAY=100 # in seconds
+
+VIRTUAL_HOST=some.domain.com
+VIRTUAL_PORT=3000
+LETSENCRYPT_HOST=some.domain.com
+LETSENCRYPT_EMAIL=you@email.com
 ```
 
 ### NEXT.js Config
