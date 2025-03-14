@@ -2,7 +2,7 @@ services:
   nginx-proxy:
     image: nginxproxy/nginx-proxy
     container_name: nginx-proxy
-    restart: always
+    restart: unless-stopped
     labels:
       - com.github.nginx-proxy.nginx
     ports:
@@ -21,7 +21,7 @@ services:
   acme-companion:
     image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
-    restart: always
+    restart: unless-stopped
     depends_on:
       - nginx-proxy
     environment:
@@ -41,7 +41,7 @@ services:
     container_name: collected-mohistory
     build:
       context: .
-    restart: always
+    restart: unless-stopped
     environment:
       NODE_ENV: production
       VIRTUAL_HOST: ${VIRTUAL_HOST}
