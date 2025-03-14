@@ -51,8 +51,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 For production use, run the following command:
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
+
+### To test the NGINX reverse proxy without Directus:
+
+```bash
+docker compose -f docker-compose-dev.yml up -d --build
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
 
@@ -91,7 +98,7 @@ services:
 When launching, make sure you include the `build` commnad:
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ## Docker-compose from git
