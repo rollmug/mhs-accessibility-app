@@ -20,6 +20,12 @@ const nextConfig = {
                 hostname: '208.72.236.236',
                 port: '8055',
                 pathname: '/assets/**/**',
+            },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '8055',
+                pathname: '/assets/**/**',
             }
         ],
     }
