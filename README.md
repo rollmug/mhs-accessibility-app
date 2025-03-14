@@ -27,6 +27,10 @@ NEXT_PUBLIC_FILES_BASE_URL=https://path-to-directus/assets
 CACHE_DELAY=100
 ```
 
+### NEXT.js Config
+
+Be sure to check the `next.config.mjs` file for remote patterns, which lists the allowed domains and protocols for remote assets. 
+
 ## Development:
 
 To run the development server in Node (for testing):
